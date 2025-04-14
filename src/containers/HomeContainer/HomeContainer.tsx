@@ -7,8 +7,9 @@ import useHomeContainer from "./common/hooks/useHomeContainer";
 
 export const HomeContainer = () => {
   // Generate all data and functions in this hook
-  const { users, isLoading: gettingUser, addUser } = useHomeContainer();
+  const { users, isLoading: gettingUser, addUser, isPending, isError } = useHomeContainer();
 
+  
   const homeTemplateProps: React.ComponentProps<typeof HomeTemplate> = {
     homeContentModuleProps: { title: "HomeContentModule" }
   };

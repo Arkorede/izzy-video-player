@@ -6,13 +6,13 @@ const useHomeContainer = () => {
   const utils = api.useUtils();
 
   const { data: users, isLoading } = api.user.getUsers.useQuery();
-  const { mutateAsync: addUser } = api.user.addUser.useMutation({
+  const { mutateAsync: addUser, isPending, isError } = api.user.addUser.useMutation({
     onSuccess: () => {
       utils.user.getUsers.invalidate(); // refresh user list
     },
   });
 
-  return { users, isLoading, addUser };
+  return { users, isLoading, addUser, isPending, isError };
 };
 
 export default useHomeContainer;
