@@ -1,7 +1,8 @@
 
+import type { AppRouter } from "~/server/api/root";
 import { api } from "~/utils/api";
 
-
+export   type Users = AppRouter['user']['getUsers'];
 const useHomeContainer = () => {
   const utils = api.useUtils();
 

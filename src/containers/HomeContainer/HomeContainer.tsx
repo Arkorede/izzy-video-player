@@ -4,9 +4,9 @@
 import { HomeTemplate } from "~/components/Templates/Home/HomeTemplate";
 import useHomeContainer from "./common/hooks/useHomeContainer";
 
-
 export const HomeContainer = () => {
   // Generate all data and functions in this hook
+
   const { users, isLoading: gettingUser, addUser, isPending, isError } = useHomeContainer();
 
   
