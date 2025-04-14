@@ -1,9 +1,11 @@
 type Props = {
   // Add props here
-  width: number;
-  height: number;
+  width?: number | string;
+  height: number | string ;
+  classNamae?: string;
+  
     };
 
 export const SkeletonAtom = (props: Props) => {
-  return (<div className={`bg-gray-800 animate-pulse rounded-full w-[${props.width}px] h-[${props.height}px]`}></div>);
+  return (<div style={props} className={`${props.classNamae} bg-gray-800 animate-pulse rounded-full`}>{ " "}</div>);
 };
