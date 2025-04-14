@@ -14,6 +14,8 @@ export const HomeContainer = () => {
     email,
     setName,
     name,
+    isPending,
+    isError,
   } = useHomeContainer();
 
   const homeTemplateProps: React.ComponentProps<typeof HomeTemplate> = {
@@ -25,7 +27,9 @@ export const HomeContainer = () => {
       setEmail,
       email,
       setName,
+      isPending,
       name,
+      title: "Home", // Adding the required title prop
     },
   };
 
