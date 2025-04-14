@@ -2,6 +2,8 @@ import { SkeletonAtom } from "~/components/Atoms/SkeletonAtom/SkeletonAtom";
 
 type Props = {
   title: string;
+  count: number; 
+  
 };
 
 export const HomeContentModule = (props: Props) => {
@@ -12,10 +14,13 @@ export const HomeContentModule = (props: Props) => {
         <SkeletonAtom width={50} height={50} />
         <SkeletonAtom width={100} height={30} />
       </div>
-      <SkeletonAtom width={'full'} height={200}  classNamae=" rounded-md"/>
-      <SkeletonAtom width={'full'} height={20} />
-      <SkeletonAtom width={'full'} height={20} />
-      <SkeletonAtom width={'full'} height={20} />
+      <SkeletonAtom width={'full'} height={200} className=" rounded-md" />
+      {
+        Array.from({ length: props.count }).map((_, index) => (
+          <SkeletonAtom key={index} width={'full'} height={20} />
+        ))
+      }
+
     </div>
   </div>;
 };

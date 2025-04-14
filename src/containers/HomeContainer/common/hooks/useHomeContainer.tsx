@@ -1,12 +1,18 @@
-import { useState, useEffect } from "react";
+
+import { api } from "~/utils/api";
+
 
 const useHomeContainer = () => {
-  // 1. States
-  // 2. Queries
-  // 3. Effects
-  // 4. Functions
+  const utils = api.useUtils();
 
-  return {};
+  const { data: users, isLoading } = api.user.getUsers.useQuery();
+  const { mutateAsync: addUser } = api.user.addUser.useMutation({
+    onSuccess: () => {
+      utils.user.getUsers.invalidate(); // refresh user list
+    },
+  });
+
+  return { users, isLoading, addUser };
 };
 
 export default useHomeContainer;
