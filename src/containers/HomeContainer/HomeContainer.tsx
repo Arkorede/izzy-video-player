@@ -10,7 +10,7 @@ export const HomeContainer = () => {
   const { users, isLoading: gettingUser, addUser } = useHomeContainer();
 
   const homeTemplateProps: React.ComponentProps<typeof HomeTemplate> = {
-    homeContentModuleProps: { title: "HomeContentModule", count: 10 }
+    homeContentModuleProps: { title: "HomeContentModule" }
   };
 
   return <HomeTemplate {...homeTemplateProps} />;
