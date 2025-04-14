@@ -1,14 +1,32 @@
 "use client";
-  
+
 import { HomeTemplate } from "~/components/Templates/Home/HomeTemplate";
 import useHomeContainer from "./common/hooks/useHomeContainer";
 
 export const HomeContainer = () => {
   // Generate all data and functions in this hook
-  const {} = useHomeContainer();
+  const {
+    users,
+    isLoading: gettingUser,
+    addUser,
+    onSubmitForm,
+    setEmail,
+    email,
+    setName,
+    name,
+  } = useHomeContainer();
 
   const homeTemplateProps: React.ComponentProps<typeof HomeTemplate> = {
-    homeContentModuleProps: { title: "HomeContentModule" },
+    homeContentModuleProps: {
+      users,
+      gettingUser,
+      addUser,
+      onSubmitForm,
+      setEmail,
+      email,
+      setName,
+      name,
+    },
   };
 
   return <HomeTemplate {...homeTemplateProps} />;

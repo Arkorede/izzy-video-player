@@ -1,3 +1,4 @@
+'use client';
 import { HomeContentModule } from "~/components/Modules/HomeContentModule/HomeContentModule";
   import { Layout } from "antd";
 import { Content, Footer, Header } from "antd/es/layout/layout";
@@ -7,6 +8,7 @@ type Props = {
 };
 
 export const HomeTemplate = (props: Props) => {
+
   return (
     <Layout style={{ height: "100%" }}>
        {/* 1. Header Modules */}
@@ -15,7 +17,7 @@ export const HomeTemplate = (props: Props) => {
 
        {/* 2. Content Modules */}
        <Content style={{ overflow: "auto" }}>
-              <HomeContentModule {...props.homeContentModuleProps}  />
+        <HomeContentModule {...props.homeContentModuleProps}  />
        </Content>
 
        {/* 3. Footer Modules */}
