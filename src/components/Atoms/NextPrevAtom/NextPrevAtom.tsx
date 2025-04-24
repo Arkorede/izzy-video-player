@@ -2,7 +2,10 @@ import { tv, type VariantProps } from "tailwind-variants";
 import NamuSvg from "~/components/Components/NamuSvg/NamuSvg";
 
 const nextPrev = tv({
-  base: "absolute top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 z-10 transition-opacity cursor-pointer",
+  base: [
+    "absolute top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 z-10 transition-opacity cursor-pointer",
+    "hidden md:block",
+  ],
   variants: {
     direction: {
       prev: "left-2",

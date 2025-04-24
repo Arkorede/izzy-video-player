@@ -1,10 +1,18 @@
 import { tv } from "tailwind-variants";
 import { EpisodeCardAtom } from "~/components/Atoms/EpisodeCardAtom/EpisodeCardAtom";
+import { useNamuCheckDeviceType } from "~/hooks/useNamuCheckDeviceType";
 
 const gallery = tv({
   slots: {
     wrapper: "overflow-hidden",
-    container: "flex gap-4 transition-transform duration-300 ease-in-out",
+    container: [
+      "flex gap-4",
+      "md:transition-transform md:duration-300 md:ease-in-out",
+      "overflow-x-auto md:overflow-x-hidden",
+      "scroll-smooth",
+      "snap-x snap-mandatory",
+    ],
+    card: "snap-center",
   },
 });
 
@@ -15,19 +23,24 @@ type Props = {
 };
 
 export const EpisodeList = (props: Props) => {
-  const { wrapper, container } = gallery();
+  const { isMobile } = useNamuCheckDeviceType();
+  const { wrapper, container, card } = gallery();
 
   return (
     <div className={wrapper()}>
       <div
         className={container()}
         style={{
-          transform: props.transformValue,
-          width: `${(props.episodeProps.length / props.itemsPerView) * 100}%`,
+          transform: isMobile ? "none" : props.transformValue,
+          width: isMobile
+            ? "auto"
+            : `${(props.episodeProps.length / props.itemsPerView) * 100}%`,
         }}
       >
         {props.episodeProps.map((episode, index) => (
-          <EpisodeCardAtom key={index} {...episode} />
+          <div key={index} className={card()}>
+            <EpisodeCardAtom {...episode} />
+          </div>
         ))}
       </div>
     </div>
