@@ -1,6 +1,7 @@
 import { tv } from "tailwind-variants";
 import type { Episode } from "~/containers/VideoContainer/common/video";
 import { formatDuration, rgbToStyle } from "~/utils/video";
+import NamuSvg from "~/components/Components/NamuSvg/NamuSvg";
 
 const episodeCard = tv({
   slots: {
@@ -10,6 +11,12 @@ const episodeCard = tv({
     title: "font-bold text-sm leading-tight",
     duration:
       "absolute bottom-2 right-2 bg-black/60 text-white text-xs px-2 py-1 rounded",
+    playButton: [
+      "absolute cursor-pointer",
+      "opacity-0 group-hover:opacity-100",
+      "transition-opacity duration-200",
+      "bg-black/50 rounded-full p-3",
+    ],
   },
 });
 
@@ -18,30 +25,35 @@ type Props = {
   onClick: (episode: Episode) => void;
 };
 
-export const EpisodeCardAtom = ({ episode, onClick }: Props) => {
-  const { wrapper, card, title, duration } = episodeCard();
+export const EpisodeCardAtom = (props: Props) => {
+  const { wrapper, card, title, duration, playButton } = episodeCard();
 
   return (
-    <div className={wrapper()} onClick={() => onClick(episode)}>
+    <div className={wrapper()} onClick={() => props.onClick(props.episode)}>
       <div
         className={card()}
         style={{
           background: `linear-gradient(135deg, 
-            ${rgbToStyle(episode.colors.primary)} 0%, 
-            ${rgbToStyle(episode.colors.secondary)} 100%
+            ${rgbToStyle(props.episode.colors.primary)} 0%, 
+            ${rgbToStyle(props.episode.colors.secondary)} 100%
           )`,
         }}
       >
         <div
           className={title()}
           style={{
-            color: rgbToStyle(episode.colors.primaryLight),
-            textShadow: `1px 1px 2px ${rgbToStyle(episode.colors.quaternary)}`,
+            color: rgbToStyle(props.episode.colors.primaryLight),
+            textShadow: `1px 1px 2px ${rgbToStyle(props.episode.colors.quaternary)}`,
           }}
         >
-          {episode.title}
+          {props.episode.title}
         </div>
-        <div className={duration()}>{formatDuration(episode.duration)}</div>
+        <div className={duration()}>
+          {formatDuration(props.episode.duration)}
+        </div>
+        <button className={playButton()}>
+          <NamuSvg iconName="play" className="h-6 w-6 text-white" />
+        </button>
       </div>
     </div>
   );

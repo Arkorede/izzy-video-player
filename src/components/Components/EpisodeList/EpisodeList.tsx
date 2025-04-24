@@ -9,6 +9,7 @@ const gallery = tv({
       "flex gap-4",
       "md:transition-transform md:duration-300 md:ease-in-out",
       "overflow-x-auto md:overflow-x-hidden",
+      "no-scrollbar",
       "scroll-smooth",
       "snap-x snap-mandatory",
     ],
