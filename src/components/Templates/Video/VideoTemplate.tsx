@@ -1,6 +1,7 @@
 import { tv } from "tailwind-variants";
 import { VideoHeaderModule } from "~/components/Modules/VideoHeaderModule/VideoHeaderModule";
-import { VideoContentModule } from "~/components/Modules/VideoContentModule/VideoContentModule";
+import { VideoGalleryModule } from "~/components/Modules/VideoGalleryModule/VideoGalleryModule";
+import { VideoTabsModule } from "~/components/Modules/VideoTabsModule/VideoTabsModule";
 import { VideoFooterModule } from "~/components/Modules/VideoFooterModule/VideoFooterModule";
 import { Layout } from "antd";
 import { Content } from "antd/es/layout/layout";
@@ -14,7 +15,8 @@ const videoTemplate = tv({
 
 type Props = {
   videoHeaderModuleProps: React.ComponentProps<typeof VideoHeaderModule>;
-  videoContentModuleProps: React.ComponentProps<typeof VideoContentModule>;
+  videoGalleryModuleProps: React.ComponentProps<typeof VideoGalleryModule>;
+  videoTabsModuleProps: React.ComponentProps<typeof VideoTabsModule>;
   videoFooterModuleProps: React.ComponentProps<typeof VideoFooterModule>;
 };
 
@@ -25,7 +27,8 @@ export const VideoTemplate = (props: Props) => {
     <Layout className={layout()}>
       <Content className={content()}>
         <VideoHeaderModule {...props.videoHeaderModuleProps} />
-        <VideoContentModule {...props.videoContentModuleProps} />
+        <VideoTabsModule {...props.videoTabsModuleProps} />
+        <VideoGalleryModule {...props.videoGalleryModuleProps} />
         <VideoFooterModule {...props.videoFooterModuleProps} />
       </Content>
     </Layout>

@@ -8,16 +8,19 @@ export const VideoContainer = () => {
     prev,
     next,
     index,
-    allEpisodes,
+    episodes,
     handleEpisodeSelect,
     ITEMS_PER_VIEW,
     transformValue,
     totalPages,
+    categories,
+    activeIndex,
+    handleTabChange,
   } = useVideoContainer();
 
   const videoTemplateProps: React.ComponentProps<typeof VideoTemplate> = {
     videoHeaderModuleProps: { title: "" },
-    videoContentModuleProps: {
+    videoGalleryModuleProps: {
       videoProps: {
         prevProps: {
           onClick: prev,
@@ -27,7 +30,7 @@ export const VideoContainer = () => {
         episodeListProps: {
           transformValue,
           itemsPerView: ITEMS_PER_VIEW,
-          episodeProps: allEpisodes.map((episode) => ({
+          episodeProps: episodes.map((episode) => ({
             episode,
             onClick: () => handleEpisodeSelect(episode),
           })),
@@ -38,6 +41,15 @@ export const VideoContainer = () => {
           totalPages,
           direction: "next",
         },
+      },
+    },
+    videoTabsModuleProps: {
+      tabListProps: {
+        tabButtonProps: categories.map((category, index) => ({
+          category,
+          isActive: index === activeIndex,
+          onClick: () => handleTabChange(index),
+        })),
       },
     },
     videoFooterModuleProps: { title: "" },

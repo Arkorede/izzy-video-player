@@ -1,18 +1,12 @@
-import { useState, useEffect } from "react";
-import type {
-  Show,
-  Episode,
-  Videos,
-} from "~/containers/VideoContainer/common/video";
+import { useState, useMemo } from "react";
+import type { Episode, Show } from "../video";
 import videos from "../videos.json";
-import { useSlider } from "~/containers/VideoContainer/common/hooks/useSlider";
+import { useSlider } from "./useSlider";
+import { useTabs } from "./useTabs";
 
 const useVideoContainer = () => {
-  // 1. States
-  // 2. Queries
-  // 3. Effects
-  // 4. Functions
   const ITEMS_PER_VIEW = 4;
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
   const getAllEpisodes = (shows: Show[]): Episode[] => {
     return shows.flatMap((show) => show.episodes);
@@ -20,28 +14,55 @@ const useVideoContainer = () => {
 
   const allEpisodes = getAllEpisodes(videos.shows);
 
+  // Extract unique categories from episodes and add "all" category
+  const categories = useMemo(() => {
+    const uniqueCategories = new Set(
+      allEpisodes.map((episode) => episode.category),
+    );
+    return ["all", ...Array.from(uniqueCategories)];
+  }, [allEpisodes]);
+
+  const filteredEpisodes = useMemo(() => {
+    if (selectedCategory === "all") {
+      return allEpisodes;
+    }
+    return allEpisodes.filter(
+      (episode) => episode.category === selectedCategory,
+    );
+  }, [allEpisodes, selectedCategory]);
+
   const { index, next, prev } = useSlider({
-    itemCount: Math.ceil(allEpisodes.length / ITEMS_PER_VIEW),
+    itemCount: Math.ceil(filteredEpisodes.length / ITEMS_PER_VIEW),
     autoPlay: false,
   });
 
   const transformValue = `translateX(-${index * (100 / ITEMS_PER_VIEW)}%)`;
-
-  const totalPages = Math.ceil(allEpisodes.length / ITEMS_PER_VIEW);
+  const totalPages = Math.ceil(filteredEpisodes.length / ITEMS_PER_VIEW);
 
   const handleEpisodeSelect = (episode: Episode) => {
     console.log(episode);
   };
 
+  const { activeIndex, setTab } = useTabs(0);
+
+  const handleTabChange = (tabIndex: number) => {
+    setTab(tabIndex);
+    setSelectedCategory(categories[tabIndex]!);
+  };
+
   return {
     ITEMS_PER_VIEW,
-    allEpisodes,
+    episodes: filteredEpisodes,
     handleEpisodeSelect,
     transformValue,
     next,
     prev,
     index,
     totalPages,
+    setSelectedCategory,
+    categories,
+    activeIndex,
+    handleTabChange,
   };
 };
 

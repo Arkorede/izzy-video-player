@@ -23,6 +23,8 @@ export type DRM = {
   url: string;
 };
 
+export type VideoCategory = "development" | "tools" | "updates" | "all";
+
 export type Episode = {
   popular?: boolean;
   released: string;
@@ -36,6 +38,7 @@ export type Episode = {
   sources: VideoSources;
   colors: VideoColors;
   drm?: DRM;
+  category: string;
 };
 
 export type Show = {
