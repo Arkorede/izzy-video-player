@@ -16,9 +16,16 @@ export const VideoContainer = () => {
     categories,
     activeIndex,
     handleTabChange,
+    selectedEpisode,
   } = useVideoContainer();
 
   const videoTemplateProps: React.ComponentProps<typeof VideoTemplate> = {
+    videoPlayerModuleProps: {
+      selectedEpisodeProps: {
+        src: selectedEpisode?.sources.full || "",
+        title: selectedEpisode?.title || "",
+      },
+    },
     videoHeaderModuleProps: { title: "" },
     videoGalleryModuleProps: {
       videoProps: {

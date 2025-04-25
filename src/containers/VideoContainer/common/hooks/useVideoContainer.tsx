@@ -7,6 +7,7 @@ import { useTabs } from "./useTabs";
 const useVideoContainer = () => {
   const ITEMS_PER_VIEW = 4;
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [selectedEpisode, setSelectedEpisode] = useState<Episode>();
 
   const getAllEpisodes = (shows: Show[]): Episode[] => {
     return shows.flatMap((show) => show.episodes);
@@ -40,7 +41,7 @@ const useVideoContainer = () => {
   const totalPages = Math.ceil(filteredEpisodes.length / ITEMS_PER_VIEW);
 
   const handleEpisodeSelect = (episode: Episode) => {
-    console.log(episode);
+    setSelectedEpisode(episode);
   };
 
   const { activeIndex, setTab } = useTabs(0);
@@ -63,6 +64,7 @@ const useVideoContainer = () => {
     categories,
     activeIndex,
     handleTabChange,
+    selectedEpisode,
   };
 };
 

@@ -41,5 +41,5 @@ export function useVideoControls(videoRef: VideoRef) {
     return () => video.removeEventListener("timeupdate", handleProgress);
   }, []);
 
-  return { isPlaying, muted, progress, togglePlay, toggleMute };
+  return { isPlaying, setPlaying, muted, progress, togglePlay, toggleMute };
 }

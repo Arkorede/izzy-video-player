@@ -17,7 +17,7 @@
           "assetPath": "https://storage.googleapis.com/biograf-video-files/videos/dd-ep-4",
           "rating": 4.9,
           "sources": {
-            "full": "https://storage.googleapis.com/biograf-video-files/videos/dd-ep-4/mp4/v-1080p-4500k-libx264.mp4",
+            "full": "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
             "dash": "https://storage.googleapis.com/biograf-video-files/videos/dd-ep-4/mp4/dash.mpd",
             "hls": "https://storage.googleapis.com/biograf-video-files/videos/dd-ep-4/hls/all.m3u8"
           },
@@ -61,7 +61,7 @@
           "assetPath": "https://storage.googleapis.com/biograf-video-files/videos/dd-ep-6",
           "rating": 4.9,
           "sources": {
-            "full": "https://storage.googleapis.com/biograf-video-files/videos/dd-ep-6/mp4/v-1080p-4500k-libx264.mp4",
+            "full": "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
             "dash": "https://storage.googleapis.com/biograf-video-files/videos/dd-ep-6/mp4/dash.mpd",
             "hls": "https://storage.googleapis.com/biograf-video-files/videos/dd-ep-6/hls/all.m3u8"
           },
@@ -105,7 +105,7 @@
           "assetPath": "https://storage.googleapis.com/biograf-video-files/videos/dd-ep-7",
           "rating": 4.2,
           "sources": {
-            "full": "https://storage.googleapis.com/biograf-video-files/videos/dd-ep-7/mp4/v-1080p-4500k-libx264.mp4",
+            "full": "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
             "dash": "https://storage.googleapis.com/biograf-video-files/videos/dd-ep-7/mp4/dash.mpd",
             "hls": "https://storage.googleapis.com/biograf-video-files/videos/dd-ep-7/hls/all.m3u8"
           },
@@ -149,7 +149,7 @@
           "assetPath": "https://storage.googleapis.com/biograf-video-files/videos/dd-ep-20",
           "rating": 4.2,
           "sources": {
-            "full": "https://storage.googleapis.com/biograf-video-files/videos/dd-ep-20/mp4/v-1080p-4500k-libx264.mp4",
+            "full": "https://filesamples.com/samples/video/mp4/sample_960x540.mp4",
             "dash": "https://storage.googleapis.com/biograf-video-files/videos/dd-ep-20/mp4/dash.mpd",
             "hls": "https://storage.googleapis.com/biograf-video-files/videos/dd-ep-20/hls/all.m3u8"
           },
@@ -201,7 +201,7 @@
           "assetPath": "https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015",
           "rating": 4.9,
           "sources": {
-            "full": "https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/v-1080p-4500k-libx264.mp4",
+            "full": "https://storage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4",
             "dash": "https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd",
             "hls": "https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/hls/all.m3u8"
           },
@@ -246,7 +246,7 @@
           "assetPath": "https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2016",
           "rating": 4.9,
           "sources": {
-            "full": "https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2016/mp4/v-1080p-4500k-libx264.mp4",
+            "full": "https://storage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4",
             "dash": "https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2016/mp4/dash.mpd",
             "hls": "https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2016/hls/all.m3u8"
           },
@@ -298,7 +298,7 @@
           "assetPath": "https://storage.googleapis.com/biograf-video-files/videos/chr-trailer",
           "rating": 4.4,
           "sources": {
-            "full": "https://storage.googleapis.com/biograf-video-files/videos/chr-trailer/mp4/v-1080p-4500k-libx264.mp4",
+            "full": "https://storage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4",
             "dash": "https://storage.googleapis.com/biograf-video-files/videos/chr-trailer/mp4/dash.mpd",
             "hls": "https://storage.googleapis.com/biograf-video-files/videos/chr-trailer/hls/all.m3u8"
           },
@@ -347,7 +347,7 @@
           "assetPath": "https://storage.googleapis.com/biograf-video-files/videos/cds-showreel",
           "rating": 3.0,
           "sources": {
-            "full": "https://storage.googleapis.com/biograf-video-files/videos/cds-showreel/mp4/v-1080p-4500k-libx264.mp4",
+            "full": "https://storage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
             "dash": "https://storage.googleapis.com/biograf-video-files/videos/cds-showreel/mp4/dash.mpd",
             "hls": "https://storage.googleapis.com/biograf-video-files/videos/cds-showreel/hls/all.m3u8"
           },
@@ -397,7 +397,7 @@
           "assetPath": "https://storage.googleapis.com/biograf-video-files/videos/ttt-ep-1",
           "rating": 4.1,
           "sources": {
-            "full": "https://storage.googleapis.com/biograf-video-files/videos/ttt-ep-1/mp4/v-1080p-4500k-libx264.mp4",
+            "full": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
             "dash": "https://storage.googleapis.com/biograf-video-files/videos/ttt-ep-1/mp4/dash.mpd",
             "hls": ""
           },
@@ -441,7 +441,7 @@
           "assetPath": "https://storage.googleapis.com/biograf-video-files/videos/ttt-ep-2",
           "rating": 3.7,
           "sources": {
-            "full": "https://storage.googleapis.com/biograf-video-files/videos/ttt-ep-2/mp4/v-1080p-4500k-libx264.mp4",
+            "full": "https://filesamples.com/samples/video/mp4/sample_960x540.mp4",
             "dash": "https://storage.googleapis.com/biograf-video-files/videos/ttt-ep-2/mp4/dash.mpd",
             "hls": "https://storage.googleapis.com/biograf-video-files/videos/ttt-ep-2/hls/all.m3u8"
           },
@@ -495,7 +495,7 @@
           "assetPath": "https://storage.googleapis.com/biograf-video-files/videos/http203-ep-17",
           "rating": 3.6,
           "sources": {
-            "full": "https://storage.googleapis.com/biograf-video-files/videos/http203-ep-17/mp4/v-1080p-4500k-libx264.mp4",
+            "full": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
             "dash": "https://storage.googleapis.com/biograf-video-files/videos/http203-ep-17/mp4/dash.mpd",
             "hls": "https://storage.googleapis.com/biograf-video-files/videos/http203-ep-17/hls/all.m3u8"
           },
@@ -545,7 +545,7 @@
           "assetPath": "https://storage.googleapis.com/biograf-video-files/videos/nic-ep-56",
           "rating": 3.9,
           "sources": {
-            "full": "https://storage.googleapis.com/biograf-video-files/videos/nic-ep-56/mp4/v-1080p-4500k-libx264.mp4",
+            "full": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
             "dash": "https://storage.googleapis.com/biograf-video-files/videos/nic-ep-56/mp4/dash.mpd",
             "hls": "https://storage.googleapis.com/biograf-video-files/videos/nic-ep-56/hls/all.m3u8"
           },
@@ -589,7 +589,7 @@
           "assetPath": "https://storage.googleapis.com/biograf-video-files/videos/nic-ep-55",
           "rating": 3.9,
           "sources": {
-            "full": "https://storage.googleapis.com/biograf-video-files/videos/nic-ep-55/mp4/v-1080p-4500k-libx264.mp4",
+            "full": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
             "dash": "https://storage.googleapis.com/biograf-video-files/videos/nic-ep-55/mp4/dash.mpd",
             "hls": "https://storage.googleapis.com/biograf-video-files/videos/nic-ep-55/hls/all.m3u8"
           },
