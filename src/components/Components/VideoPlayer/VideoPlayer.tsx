@@ -1,6 +1,4 @@
-import { useRef } from "react";
-import { useVideoControls } from "~/containers/VideoContainer/common/hooks/useVideoControls";
-import { useKeyboardShortcut } from "~/containers/VideoContainer/common/hooks/useKeyboardShortcut";
+import { Popup } from "../Popup/Popup";
 import { tv } from "tailwind-variants";
 import NamuSvg from "~/components/Components/NamuSvg/NamuSvg";
 
@@ -21,16 +19,17 @@ const videoPlayer = tv({
 type Props = {
   src: string;
   title: string;
+  videoRef: React.RefObject<HTMLVideoElement | null>;
+  isPlaying: boolean;
+  muted: boolean;
+  progress: number;
+  togglePlay: () => void;
+  toggleMute: () => void;
+  setPlaying: (isPlaying: boolean) => void;
+  popupProps: React.ComponentProps<typeof Popup>;
 };
 
 export const VideoPlayer = (props: Props) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const { isPlaying, setPlaying, muted, progress, togglePlay, toggleMute } =
-    useVideoControls(videoRef);
-
-  useKeyboardShortcut(" ", togglePlay);
-  useKeyboardShortcut("m", toggleMute);
-
   const {
     wrapper,
     video,
@@ -44,13 +43,13 @@ export const VideoPlayer = (props: Props) => {
   return (
     <div className={wrapper()}>
       <video
-        ref={videoRef}
+        ref={props.videoRef}
         src={props.src}
         className={video()}
-        muted={muted}
+        muted={props.muted}
         autoPlay
-        onPlay={() => setPlaying(true)}
-        onPause={() => setPlaying(false)}
+        onPlay={() => props.setPlaying(true)}
+        onPause={() => props.setPlaying(false)}
       />
 
       {/* Title Bar */}
@@ -58,22 +57,31 @@ export const VideoPlayer = (props: Props) => {
         <h2 className={titleStyle()}>{props.title}</h2>
       </div>
 
-      {/* Controls */}
       <div className={controls()}>
-        <button onClick={togglePlay} className={button()}>
-          <NamuSvg iconName={isPlaying ? "pause" : "play"} className={icon()} />
+        <button onClick={props.togglePlay} className={button()}>
+          <NamuSvg
+            iconName={props.isPlaying ? "pause" : "play"}
+            className={icon()}
+          />
         </button>
 
-        <button onClick={toggleMute} className={button()}>
+        <button onClick={props.toggleMute} className={button()}>
           <NamuSvg
-            iconName={muted ? "volumeOff" : "volumeUp"}
+            iconName={props.muted ? "volumeOff" : "volumeUp"}
             className={icon()}
           />
         </button>
 
         <div className="h-1 flex-1 overflow-hidden rounded-full bg-white/30">
-          <div className="h-full bg-white" style={{ width: `${progress}%` }} />
+          <div
+            className="h-full bg-white"
+            style={{ width: `${props.progress}%` }}
+          />
         </div>
+      </div>
+
+      <div className="absolute top-0 z-30">
+        <Popup {...props.popupProps} />
       </div>
     </div>
   );

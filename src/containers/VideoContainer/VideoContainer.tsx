@@ -17,16 +17,51 @@ export const VideoContainer = () => {
     activeIndex,
     handleTabChange,
     selectedEpisode,
+    videoRef,
+    isPlaying,
+    muted,
+    progress,
+    togglePlay,
+    toggleMute,
+    setPlaying,
+    isOpen,
+    closeModal,
+    handleContinueWatching,
+    handleStopWatching,
   } = useVideoContainer();
 
   const videoTemplateProps: React.ComponentProps<typeof VideoTemplate> = {
+    videoHeaderModuleProps: { title: "Video Showcase" },
     videoPlayerModuleProps: {
       selectedEpisodeProps: {
         src: selectedEpisode?.sources.full || "",
         title: selectedEpisode?.title || "",
+        videoRef,
+        isPlaying,
+        muted,
+        progress,
+        togglePlay,
+        toggleMute,
+        setPlaying,
+        popupProps: {
+          title: "Are you sure?",
+          subtitle: "You are about to stop watching this video.",
+          buttonProps: [
+            {
+              label: "Continue watching",
+              onClick: handleContinueWatching,
+              color: "success",
+            },
+            {
+              label: "Stop watching",
+              onClick: handleStopWatching,
+            },
+          ],
+          isOpen,
+          closePopup: closeModal,
+        },
       },
     },
-    videoHeaderModuleProps: { title: "" },
     videoGalleryModuleProps: {
       videoProps: {
         prevProps: {

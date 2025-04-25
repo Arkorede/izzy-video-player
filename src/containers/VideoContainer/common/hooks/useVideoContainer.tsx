@@ -1,8 +1,12 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import type { Episode, Show } from "../video";
 import videos from "../videos.json";
 import { useSlider } from "./useSlider";
 import { useTabs } from "./useTabs";
+import { useModal } from "~/hooks/useModal";
+import { useVideoControls } from "./useVideoControls";
+import { useIdleDetection } from "./useIdleDetection";
+import { useKeyboardShortcut } from "./useKeyboardShortcut";
 
 const useVideoContainer = () => {
   const ITEMS_PER_VIEW = 4;
@@ -51,6 +55,37 @@ const useVideoContainer = () => {
     setSelectedCategory(categories[tabIndex]!);
   };
 
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  const { isPlaying, muted, progress, togglePlay, toggleMute, setPlaying } =
+    useVideoControls(videoRef);
+  const { isOpen, openModal, closeModal } = useModal();
+
+  const handleContinueWatching = () => {
+    closeModal();
+    if (videoRef.current) {
+      videoRef.current.play();
+    }
+  };
+
+  const handleStopWatching = () => {
+    closeModal();
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  };
+
+  // Initialize idle detection (2 minutes = 120000 milliseconds)
+  useIdleDetection({
+    timeout: 6000,
+    onIdle: openModal,
+    isPlaying,
+  });
+
+  useKeyboardShortcut(" ", togglePlay);
+  useKeyboardShortcut("m", toggleMute);
+
   return {
     ITEMS_PER_VIEW,
     episodes: filteredEpisodes,
@@ -65,6 +100,18 @@ const useVideoContainer = () => {
     activeIndex,
     handleTabChange,
     selectedEpisode,
+    videoRef,
+    isPlaying,
+    muted,
+    progress,
+    togglePlay,
+    toggleMute,
+    setPlaying,
+    isOpen,
+    openModal,
+    closeModal,
+    handleContinueWatching,
+    handleStopWatching,
   };
 };
 
