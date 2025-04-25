@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 
 const header = tv({
-  base: "relative w-full text-4xl font-bold p-8",
+  base: "relative max-w-4xl mx-auto w-full text-4xl font-bold p-4",
 });
 
 type Props = {

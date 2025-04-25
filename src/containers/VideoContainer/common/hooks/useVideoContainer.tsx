@@ -80,7 +80,6 @@ const useVideoContainer = () => {
   useIdleDetection({
     timeout: 6000,
     onIdle: openModal,
-    isPlaying,
   });
 
   useKeyboardShortcut(" ", togglePlay);
