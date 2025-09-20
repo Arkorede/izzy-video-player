@@ -74,7 +74,7 @@ export const convertImageToWebP = (imageUrl: string, quality = 0.8) => {
           }
         },
         "image/webp",
-        quality
+        quality,
       );
     };
     img.onerror = () => {
