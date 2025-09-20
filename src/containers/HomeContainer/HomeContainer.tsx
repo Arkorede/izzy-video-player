@@ -16,6 +16,7 @@ export const HomeContainer = () => {
     name,
     isPending,
     isError,
+    handleViewVideoPage,
   } = useHomeContainer();
 
   const homeTemplateProps: React.ComponentProps<typeof HomeTemplate> = {
@@ -29,7 +30,11 @@ export const HomeContainer = () => {
       setName,
       isPending,
       name,
-      title: "Home", // Adding the required title prop
+      title: "Home Page",
+      buttonProps: {
+        label: "View Video Page",
+        onClick: handleViewVideoPage,
+      }, // Adding the required title prop
     },
   };
 

@@ -1,11 +1,11 @@
-
 import type { AppRouter } from "~/server/api/root";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { api } from "~/utils/api";
 import type { inferRouterOutputs } from "@trpc/server";
 
 type RouterOutput = inferRouterOutputs<AppRouter>;
-export type Users = RouterOutput['user']['getUsers'];
+export type Users = RouterOutput["user"]["getUsers"];
 type User = {
   id: string;
   name: string;
@@ -15,16 +15,25 @@ type User = {
 const useHomeContainer = () => {
   const utils = api.useUtils();
 
+  const router = useRouter();
+
   const [email, setEmail] = useState<string | undefined>("");
   const [name, setName] = useState<string | undefined>("");
 
   const { data: users, isLoading } = api.user.getUsers.useQuery();
-  const { mutateAsync: addUser, isPending, isError } = api.user.addUser.useMutation({
+  const {
+    mutateAsync: addUser,
+    isPending,
+    isError,
+  } = api.user.addUser.useMutation({
     onSuccess: () => {
       utils.user.getUsers.invalidate(); // refresh user list
     },
   });
 
+  const handleViewVideoPage = () => {
+    router.push("/video");
+  };
 
   const onSubmitForm = async (data: User) => {
     console.log(data);
@@ -40,7 +49,19 @@ const useHomeContainer = () => {
     }
   };
 
-  return { users, isLoading, addUser, onSubmitForm, name, setName, email, setEmail, isPending, isError };
+  return {
+    users,
+    isLoading,
+    addUser,
+    onSubmitForm,
+    name,
+    setName,
+    email,
+    setEmail,
+    isPending,
+    isError,
+    handleViewVideoPage,
+  };
 };
 
 export default useHomeContainer;

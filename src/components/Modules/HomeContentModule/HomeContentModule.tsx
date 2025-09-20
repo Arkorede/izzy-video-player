@@ -1,5 +1,3 @@
-import { SkeletonAtom } from "~/components/Atoms/SkeletonAtom/SkeletonAtom";
-
 import type { Users } from "~/containers/HomeContainer/common/hooks/useHomeContainer";
 
 type Props = {
@@ -13,10 +11,22 @@ type Props = {
   setName?: (name: string | undefined) => void;
   name?: string | undefined;
   isPending?: boolean;
+  buttonProps: {
+    label: string;
+    onClick: () => void;
+  };
 };
 
 export const HomeContentModule = (props: Props) => {
-  return <div className="flex flex-col items-center justify-center w-full h-full gap-4 pt-[40px]">
-
-  </div>;
+  return (
+    <div className="flex h-full w-full flex-col items-center justify-center gap-4 pt-[40px]">
+      {props.title}
+      <button
+        className="cursor-pointer rounded-2xl bg-blue-700 p-4 text-white"
+        onClick={props.buttonProps.onClick}
+      >
+        {props.buttonProps.label}
+      </button>
+    </div>
+  );
 };
