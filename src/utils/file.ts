@@ -1,7 +1,7 @@
 import { message, type UploadFile } from "antd";
 import { uploadFormData } from "./upload";
 import { MAX_FILE_SIZE } from "./constants";
-import { FileType } from "@prisma/client";
+// import { FileType } from "@prisma/client";
 
 export const isOverMaxFileSize = (file: UploadFile) => {
   if (file.size && file.size > MAX_FILE_SIZE) {
@@ -85,18 +85,18 @@ export const convertImageToWebP = (imageUrl: string, quality = 0.8) => {
   });
 };
 
-export const getFileType = (type?: string) => {
-  if (type?.toLowerCase().startsWith("image")) {
-    return FileType.IMAGE;
-  }
+// export const getFileType = (type?: string) => {
+//   if (type?.toLowerCase().startsWith("image")) {
+//     return FileType.IMAGE;
+//   }
 
-  if (type?.toLowerCase().startsWith("audio")) {
-    return FileType.AUDIO;
-  }
+//   if (type?.toLowerCase().startsWith("audio")) {
+//     return FileType.AUDIO;
+//   }
 
-  if (type?.toLowerCase().startsWith("video")) {
-    return FileType.VIDEO;
-  }
+//   if (type?.toLowerCase().startsWith("video")) {
+//     return FileType.VIDEO;
+//   }
 
-  return FileType.OTHER;
-};
+//   return FileType.OTHER;
+// };
