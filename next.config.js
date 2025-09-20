@@ -25,7 +25,7 @@ const config = {
     return [
       {
         source: "/",
-        destination: "/home",
+        destination: "/video",
         permanent: false
       }
     ];
